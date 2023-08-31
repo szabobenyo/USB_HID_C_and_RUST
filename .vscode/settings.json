@@ -1,0 +1,10 @@
+{
+	"cortex-debug.armToolchainPath": "",
+	"cortex-debug.openocdPath": "c:\\Users\\Bence\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.3.0\\OpenOCD\\bin\\openocd",
+	"cmake.configureOnOpen": true,
+	"files.associations": {
+		"rust_wrapper.h": "c",
+		"dataprovider.h": "c",
+		"stm32f4xx_hal.h": "c"
+	}
+}

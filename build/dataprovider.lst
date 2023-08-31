@@ -1,0 +1,790 @@
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"dataprovider.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.getDataprovider,"ax",%progbits
+  20              		.align	1
+  21              		.global	getDataprovider
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	getDataprovider:
+  27              	.LFB134:
+  28              		.file 1 "dataprovider.c"
+   1:dataprovider.c **** #include "dataprovider.h"
+   2:dataprovider.c **** 
+   3:dataprovider.c **** // A singleton példány
+   4:dataprovider.c **** static struct dataprovider instance;
+   5:dataprovider.c **** 
+   6:dataprovider.c **** // Az adatszerkezet globális példányának elérése
+   7:dataprovider.c **** struct dataprovider *getDataprovider()
+   8:dataprovider.c **** {
+  29              		.loc 1 8 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   9:dataprovider.c ****     return &instance;
+  34              		.loc 1 9 5 view .LVU1
+  10:dataprovider.c **** }
+  35              		.loc 1 10 1 is_stmt 0 view .LVU2
+  36 0000 0048     		ldr	r0, .L2
+  37 0002 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 0004 00000000 		.word	.LANCHOR0
+  42              		.cfi_endproc
+  43              	.LFE134:
+  45              		.section	.text.initDataprovider,"ax",%progbits
+  46              		.align	1
+  47              		.global	initDataprovider
+  48              		.syntax unified
+  49              		.thumb
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 2
+
+
+  50              		.thumb_func
+  52              	initDataprovider:
+  53              	.LFB135:
+  11:dataprovider.c **** 
+  12:dataprovider.c **** // Egyetlen példány létrehozása és inicializálása
+  13:dataprovider.c **** void initDataprovider()
+  14:dataprovider.c **** {
+  54              		.loc 1 14 1 is_stmt 1 view -0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  15:dataprovider.c ****     instance.LDs = 0;
+  59              		.loc 1 15 5 view .LVU4
+  60              		.loc 1 15 18 is_stmt 0 view .LVU5
+  61 0000 044B     		ldr	r3, .L5
+  62 0002 0022     		movs	r2, #0
+  63 0004 1A60     		str	r2, [r3]
+  16:dataprovider.c ****     instance.LED_Green_speed = 250;
+  64              		.loc 1 16 5 is_stmt 1 view .LVU6
+  65              		.loc 1 16 30 is_stmt 0 view .LVU7
+  66 0006 FA21     		movs	r1, #250
+  67 0008 5960     		str	r1, [r3, #4]
+  17:dataprovider.c ****     instance.LED_Blue_isActive = 0;
+  68              		.loc 1 17 5 is_stmt 1 view .LVU8
+  69              		.loc 1 17 32 is_stmt 0 view .LVU9
+  70 000a 1A61     		str	r2, [r3, #16]
+  18:dataprovider.c ****     instance.LED_Blue_currentState = 0;
+  71              		.loc 1 18 5 is_stmt 1 view .LVU10
+  72              		.loc 1 18 36 is_stmt 0 view .LVU11
+  73 000c 5A61     		str	r2, [r3, #20]
+  19:dataprovider.c ****     instance.LED_Red_isActive = 0;
+  74              		.loc 1 19 5 is_stmt 1 view .LVU12
+  75              		.loc 1 19 31 is_stmt 0 view .LVU13
+  76 000e 9A61     		str	r2, [r3, #24]
+  20:dataprovider.c ****     instance.LED_Red_currentState = 0;
+  77              		.loc 1 20 5 is_stmt 1 view .LVU14
+  78              		.loc 1 20 35 is_stmt 0 view .LVU15
+  79 0010 DA61     		str	r2, [r3, #28]
+  21:dataprovider.c **** }
+  80              		.loc 1 21 1 view .LVU16
+  81 0012 7047     		bx	lr
+  82              	.L6:
+  83              		.align	2
+  84              	.L5:
+  85 0014 00000000 		.word	.LANCHOR0
+  86              		.cfi_endproc
+  87              	.LFE135:
+  89              		.section	.text.getLDs,"ax",%progbits
+  90              		.align	1
+  91              		.global	getLDs
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  96              	getLDs:
+  97              	.LFB136:
+  22:dataprovider.c **** 
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 3
+
+
+  23:dataprovider.c **** int getLDs()
+  24:dataprovider.c **** {
+  98              		.loc 1 24 1 is_stmt 1 view -0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102 0000 08B5     		push	{r3, lr}
+ 103              	.LCFI0:
+ 104              		.cfi_def_cfa_offset 8
+ 105              		.cfi_offset 3, -8
+ 106              		.cfi_offset 14, -4
+  25:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 107              		.loc 1 25 5 view .LVU18
+ 108              		.loc 1 25 31 is_stmt 0 view .LVU19
+ 109 0002 FFF7FEFF 		bl	getDataprovider
+ 110              	.LVL0:
+  26:dataprovider.c ****     return dp->LDs;
+ 111              		.loc 1 26 5 is_stmt 1 view .LVU20
+  27:dataprovider.c **** }
+ 112              		.loc 1 27 1 is_stmt 0 view .LVU21
+ 113 0006 0068     		ldr	r0, [r0]
+ 114              	.LVL1:
+ 115              		.loc 1 27 1 view .LVU22
+ 116 0008 08BD     		pop	{r3, pc}
+ 117              		.cfi_endproc
+ 118              	.LFE136:
+ 120              		.section	.text.setLDs,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	setLDs
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	setLDs:
+ 128              	.LVL2:
+ 129              	.LFB137:
+  28:dataprovider.c **** 
+  29:dataprovider.c **** void setLDs(int value)
+  30:dataprovider.c **** {
+ 130              		.loc 1 30 1 is_stmt 1 view -0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		.loc 1 30 1 is_stmt 0 view .LVU24
+ 135 0000 10B5     		push	{r4, lr}
+ 136              	.LCFI1:
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 4, -8
+ 139              		.cfi_offset 14, -4
+ 140 0002 0446     		mov	r4, r0
+  31:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 141              		.loc 1 31 5 is_stmt 1 view .LVU25
+ 142              		.loc 1 31 31 is_stmt 0 view .LVU26
+ 143 0004 FFF7FEFF 		bl	getDataprovider
+ 144              	.LVL3:
+  32:dataprovider.c ****     dp->LDs = value;
+ 145              		.loc 1 32 5 is_stmt 1 view .LVU27
+ 146              		.loc 1 32 13 is_stmt 0 view .LVU28
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 4
+
+
+ 147 0008 0460     		str	r4, [r0]
+  33:dataprovider.c **** }
+ 148              		.loc 1 33 1 view .LVU29
+ 149 000a 10BD     		pop	{r4, pc}
+ 150              		.loc 1 33 1 view .LVU30
+ 151              		.cfi_endproc
+ 152              	.LFE137:
+ 154              		.section	.text.getLED_Green_speed,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	getLED_Green_speed
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	getLED_Green_speed:
+ 162              	.LFB138:
+  34:dataprovider.c **** 
+  35:dataprovider.c **** int getLED_Green_speed()
+  36:dataprovider.c **** {
+ 163              		.loc 1 36 1 is_stmt 1 view -0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ 168              	.LCFI2:
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 3, -8
+ 171              		.cfi_offset 14, -4
+  37:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 172              		.loc 1 37 5 view .LVU32
+ 173              		.loc 1 37 31 is_stmt 0 view .LVU33
+ 174 0002 FFF7FEFF 		bl	getDataprovider
+ 175              	.LVL4:
+  38:dataprovider.c ****     return dp->LED_Green_speed;
+ 176              		.loc 1 38 5 is_stmt 1 view .LVU34
+  39:dataprovider.c **** }
+ 177              		.loc 1 39 1 is_stmt 0 view .LVU35
+ 178 0006 4068     		ldr	r0, [r0, #4]
+ 179              	.LVL5:
+ 180              		.loc 1 39 1 view .LVU36
+ 181 0008 08BD     		pop	{r3, pc}
+ 182              		.cfi_endproc
+ 183              	.LFE138:
+ 185              		.section	.text.setLED_Green_speed,"ax",%progbits
+ 186              		.align	1
+ 187              		.global	setLED_Green_speed
+ 188              		.syntax unified
+ 189              		.thumb
+ 190              		.thumb_func
+ 192              	setLED_Green_speed:
+ 193              	.LVL6:
+ 194              	.LFB139:
+  40:dataprovider.c **** 
+  41:dataprovider.c **** void setLED_Green_speed(int value)
+  42:dataprovider.c **** {
+ 195              		.loc 1 42 1 is_stmt 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 5
+
+
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		.loc 1 42 1 is_stmt 0 view .LVU38
+ 200 0000 10B5     		push	{r4, lr}
+ 201              	.LCFI3:
+ 202              		.cfi_def_cfa_offset 8
+ 203              		.cfi_offset 4, -8
+ 204              		.cfi_offset 14, -4
+ 205 0002 0446     		mov	r4, r0
+  43:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 206              		.loc 1 43 5 is_stmt 1 view .LVU39
+ 207              		.loc 1 43 31 is_stmt 0 view .LVU40
+ 208 0004 FFF7FEFF 		bl	getDataprovider
+ 209              	.LVL7:
+  44:dataprovider.c ****     dp->LED_Green_speed = value;
+ 210              		.loc 1 44 5 is_stmt 1 view .LVU41
+ 211              		.loc 1 44 25 is_stmt 0 view .LVU42
+ 212 0008 4460     		str	r4, [r0, #4]
+  45:dataprovider.c **** }
+ 213              		.loc 1 45 1 view .LVU43
+ 214 000a 10BD     		pop	{r4, pc}
+ 215              		.loc 1 45 1 view .LVU44
+ 216              		.cfi_endproc
+ 217              	.LFE139:
+ 219              		.section	.text.getLED_Green_isActive,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	getLED_Green_isActive
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 226              	getLED_Green_isActive:
+ 227              	.LFB140:
+  46:dataprovider.c **** 
+  47:dataprovider.c **** int getLED_Green_isActive()
+  48:dataprovider.c **** {
+ 228              		.loc 1 48 1 is_stmt 1 view -0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232 0000 08B5     		push	{r3, lr}
+ 233              	.LCFI4:
+ 234              		.cfi_def_cfa_offset 8
+ 235              		.cfi_offset 3, -8
+ 236              		.cfi_offset 14, -4
+  49:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 237              		.loc 1 49 5 view .LVU46
+ 238              		.loc 1 49 31 is_stmt 0 view .LVU47
+ 239 0002 FFF7FEFF 		bl	getDataprovider
+ 240              	.LVL8:
+  50:dataprovider.c ****     return dp->LED_Green_isActive;
+ 241              		.loc 1 50 5 is_stmt 1 view .LVU48
+  51:dataprovider.c **** }
+ 242              		.loc 1 51 1 is_stmt 0 view .LVU49
+ 243 0006 8068     		ldr	r0, [r0, #8]
+ 244              	.LVL9:
+ 245              		.loc 1 51 1 view .LVU50
+ 246 0008 08BD     		pop	{r3, pc}
+ 247              		.cfi_endproc
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 6
+
+
+ 248              	.LFE140:
+ 250              		.section	.text.setLED_Green_isActive,"ax",%progbits
+ 251              		.align	1
+ 252              		.global	setLED_Green_isActive
+ 253              		.syntax unified
+ 254              		.thumb
+ 255              		.thumb_func
+ 257              	setLED_Green_isActive:
+ 258              	.LVL10:
+ 259              	.LFB141:
+  52:dataprovider.c **** 
+  53:dataprovider.c **** void setLED_Green_isActive(int value)
+  54:dataprovider.c **** {
+ 260              		.loc 1 54 1 is_stmt 1 view -0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		.loc 1 54 1 is_stmt 0 view .LVU52
+ 265 0000 10B5     		push	{r4, lr}
+ 266              	.LCFI5:
+ 267              		.cfi_def_cfa_offset 8
+ 268              		.cfi_offset 4, -8
+ 269              		.cfi_offset 14, -4
+ 270 0002 0446     		mov	r4, r0
+  55:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 271              		.loc 1 55 5 is_stmt 1 view .LVU53
+ 272              		.loc 1 55 31 is_stmt 0 view .LVU54
+ 273 0004 FFF7FEFF 		bl	getDataprovider
+ 274              	.LVL11:
+  56:dataprovider.c ****     dp->LED_Green_isActive = value;
+ 275              		.loc 1 56 5 is_stmt 1 view .LVU55
+ 276              		.loc 1 56 28 is_stmt 0 view .LVU56
+ 277 0008 8460     		str	r4, [r0, #8]
+  57:dataprovider.c **** }
+ 278              		.loc 1 57 1 view .LVU57
+ 279 000a 10BD     		pop	{r4, pc}
+ 280              		.loc 1 57 1 view .LVU58
+ 281              		.cfi_endproc
+ 282              	.LFE141:
+ 284              		.section	.text.getLED_Green_currentState,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	getLED_Green_currentState
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	getLED_Green_currentState:
+ 292              	.LFB142:
+  58:dataprovider.c **** 
+  59:dataprovider.c **** int getLED_Green_currentState()
+  60:dataprovider.c **** {
+ 293              		.loc 1 60 1 is_stmt 1 view -0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297 0000 08B5     		push	{r3, lr}
+ 298              	.LCFI6:
+ 299              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 7
+
+
+ 300              		.cfi_offset 3, -8
+ 301              		.cfi_offset 14, -4
+  61:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 302              		.loc 1 61 5 view .LVU60
+ 303              		.loc 1 61 31 is_stmt 0 view .LVU61
+ 304 0002 FFF7FEFF 		bl	getDataprovider
+ 305              	.LVL12:
+  62:dataprovider.c ****     return dp->LED_Green_currentState;
+ 306              		.loc 1 62 5 is_stmt 1 view .LVU62
+  63:dataprovider.c **** }
+ 307              		.loc 1 63 1 is_stmt 0 view .LVU63
+ 308 0006 C068     		ldr	r0, [r0, #12]
+ 309              	.LVL13:
+ 310              		.loc 1 63 1 view .LVU64
+ 311 0008 08BD     		pop	{r3, pc}
+ 312              		.cfi_endproc
+ 313              	.LFE142:
+ 315              		.section	.text.setLED_Green_currentState,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	setLED_Green_currentState
+ 318              		.syntax unified
+ 319              		.thumb
+ 320              		.thumb_func
+ 322              	setLED_Green_currentState:
+ 323              	.LVL14:
+ 324              	.LFB143:
+  64:dataprovider.c **** 
+  65:dataprovider.c **** void setLED_Green_currentState(int value)
+  66:dataprovider.c **** {
+ 325              		.loc 1 66 1 is_stmt 1 view -0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		.loc 1 66 1 is_stmt 0 view .LVU66
+ 330 0000 10B5     		push	{r4, lr}
+ 331              	.LCFI7:
+ 332              		.cfi_def_cfa_offset 8
+ 333              		.cfi_offset 4, -8
+ 334              		.cfi_offset 14, -4
+ 335 0002 0446     		mov	r4, r0
+  67:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 336              		.loc 1 67 5 is_stmt 1 view .LVU67
+ 337              		.loc 1 67 31 is_stmt 0 view .LVU68
+ 338 0004 FFF7FEFF 		bl	getDataprovider
+ 339              	.LVL15:
+  68:dataprovider.c ****     dp->LED_Green_currentState = value;
+ 340              		.loc 1 68 5 is_stmt 1 view .LVU69
+ 341              		.loc 1 68 32 is_stmt 0 view .LVU70
+ 342 0008 C460     		str	r4, [r0, #12]
+  69:dataprovider.c **** }
+ 343              		.loc 1 69 1 view .LVU71
+ 344 000a 10BD     		pop	{r4, pc}
+ 345              		.loc 1 69 1 view .LVU72
+ 346              		.cfi_endproc
+ 347              	.LFE143:
+ 349              		.section	.text.getLED_Blue_isActive,"ax",%progbits
+ 350              		.align	1
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 8
+
+
+ 351              		.global	getLED_Blue_isActive
+ 352              		.syntax unified
+ 353              		.thumb
+ 354              		.thumb_func
+ 356              	getLED_Blue_isActive:
+ 357              	.LFB144:
+  70:dataprovider.c **** 
+  71:dataprovider.c **** int getLED_Blue_isActive()
+  72:dataprovider.c **** {
+ 358              		.loc 1 72 1 is_stmt 1 view -0
+ 359              		.cfi_startproc
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362 0000 08B5     		push	{r3, lr}
+ 363              	.LCFI8:
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 3, -8
+ 366              		.cfi_offset 14, -4
+  73:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 367              		.loc 1 73 5 view .LVU74
+ 368              		.loc 1 73 31 is_stmt 0 view .LVU75
+ 369 0002 FFF7FEFF 		bl	getDataprovider
+ 370              	.LVL16:
+  74:dataprovider.c ****     return dp->LED_Blue_isActive;
+ 371              		.loc 1 74 5 is_stmt 1 view .LVU76
+  75:dataprovider.c **** }
+ 372              		.loc 1 75 1 is_stmt 0 view .LVU77
+ 373 0006 0069     		ldr	r0, [r0, #16]
+ 374              	.LVL17:
+ 375              		.loc 1 75 1 view .LVU78
+ 376 0008 08BD     		pop	{r3, pc}
+ 377              		.cfi_endproc
+ 378              	.LFE144:
+ 380              		.section	.text.setLED_Blue_isActive,"ax",%progbits
+ 381              		.align	1
+ 382              		.global	setLED_Blue_isActive
+ 383              		.syntax unified
+ 384              		.thumb
+ 385              		.thumb_func
+ 387              	setLED_Blue_isActive:
+ 388              	.LVL18:
+ 389              	.LFB145:
+  76:dataprovider.c **** 
+  77:dataprovider.c **** void setLED_Blue_isActive(int value)
+  78:dataprovider.c **** {
+ 390              		.loc 1 78 1 is_stmt 1 view -0
+ 391              		.cfi_startproc
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              		.loc 1 78 1 is_stmt 0 view .LVU80
+ 395 0000 10B5     		push	{r4, lr}
+ 396              	.LCFI9:
+ 397              		.cfi_def_cfa_offset 8
+ 398              		.cfi_offset 4, -8
+ 399              		.cfi_offset 14, -4
+ 400 0002 0446     		mov	r4, r0
+  79:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 9
+
+
+ 401              		.loc 1 79 5 is_stmt 1 view .LVU81
+ 402              		.loc 1 79 31 is_stmt 0 view .LVU82
+ 403 0004 FFF7FEFF 		bl	getDataprovider
+ 404              	.LVL19:
+  80:dataprovider.c ****     dp->LED_Blue_isActive = value;
+ 405              		.loc 1 80 5 is_stmt 1 view .LVU83
+ 406              		.loc 1 80 27 is_stmt 0 view .LVU84
+ 407 0008 0461     		str	r4, [r0, #16]
+  81:dataprovider.c **** }
+ 408              		.loc 1 81 1 view .LVU85
+ 409 000a 10BD     		pop	{r4, pc}
+ 410              		.loc 1 81 1 view .LVU86
+ 411              		.cfi_endproc
+ 412              	.LFE145:
+ 414              		.section	.text.getLED_Blue_currentState,"ax",%progbits
+ 415              		.align	1
+ 416              		.global	getLED_Blue_currentState
+ 417              		.syntax unified
+ 418              		.thumb
+ 419              		.thumb_func
+ 421              	getLED_Blue_currentState:
+ 422              	.LFB146:
+  82:dataprovider.c **** 
+  83:dataprovider.c **** int getLED_Blue_currentState()
+  84:dataprovider.c **** {
+ 423              		.loc 1 84 1 is_stmt 1 view -0
+ 424              		.cfi_startproc
+ 425              		@ args = 0, pretend = 0, frame = 0
+ 426              		@ frame_needed = 0, uses_anonymous_args = 0
+ 427 0000 08B5     		push	{r3, lr}
+ 428              	.LCFI10:
+ 429              		.cfi_def_cfa_offset 8
+ 430              		.cfi_offset 3, -8
+ 431              		.cfi_offset 14, -4
+  85:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 432              		.loc 1 85 5 view .LVU88
+ 433              		.loc 1 85 31 is_stmt 0 view .LVU89
+ 434 0002 FFF7FEFF 		bl	getDataprovider
+ 435              	.LVL20:
+  86:dataprovider.c ****     return dp->LED_Blue_currentState;
+ 436              		.loc 1 86 5 is_stmt 1 view .LVU90
+  87:dataprovider.c **** }
+ 437              		.loc 1 87 1 is_stmt 0 view .LVU91
+ 438 0006 4069     		ldr	r0, [r0, #20]
+ 439              	.LVL21:
+ 440              		.loc 1 87 1 view .LVU92
+ 441 0008 08BD     		pop	{r3, pc}
+ 442              		.cfi_endproc
+ 443              	.LFE146:
+ 445              		.section	.text.setLED_Blue_currentState,"ax",%progbits
+ 446              		.align	1
+ 447              		.global	setLED_Blue_currentState
+ 448              		.syntax unified
+ 449              		.thumb
+ 450              		.thumb_func
+ 452              	setLED_Blue_currentState:
+ 453              	.LVL22:
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 10
+
+
+ 454              	.LFB147:
+  88:dataprovider.c **** 
+  89:dataprovider.c **** void setLED_Blue_currentState(int value)
+  90:dataprovider.c **** {
+ 455              		.loc 1 90 1 is_stmt 1 view -0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              		.loc 1 90 1 is_stmt 0 view .LVU94
+ 460 0000 10B5     		push	{r4, lr}
+ 461              	.LCFI11:
+ 462              		.cfi_def_cfa_offset 8
+ 463              		.cfi_offset 4, -8
+ 464              		.cfi_offset 14, -4
+ 465 0002 0446     		mov	r4, r0
+  91:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 466              		.loc 1 91 5 is_stmt 1 view .LVU95
+ 467              		.loc 1 91 31 is_stmt 0 view .LVU96
+ 468 0004 FFF7FEFF 		bl	getDataprovider
+ 469              	.LVL23:
+  92:dataprovider.c ****     dp->LED_Blue_currentState = value;
+ 470              		.loc 1 92 5 is_stmt 1 view .LVU97
+ 471              		.loc 1 92 31 is_stmt 0 view .LVU98
+ 472 0008 4461     		str	r4, [r0, #20]
+  93:dataprovider.c **** }
+ 473              		.loc 1 93 1 view .LVU99
+ 474 000a 10BD     		pop	{r4, pc}
+ 475              		.loc 1 93 1 view .LVU100
+ 476              		.cfi_endproc
+ 477              	.LFE147:
+ 479              		.section	.text.getLED_Red_isActive,"ax",%progbits
+ 480              		.align	1
+ 481              		.global	getLED_Red_isActive
+ 482              		.syntax unified
+ 483              		.thumb
+ 484              		.thumb_func
+ 486              	getLED_Red_isActive:
+ 487              	.LFB148:
+  94:dataprovider.c **** 
+  95:dataprovider.c **** int getLED_Red_isActive()
+  96:dataprovider.c **** {
+ 488              		.loc 1 96 1 is_stmt 1 view -0
+ 489              		.cfi_startproc
+ 490              		@ args = 0, pretend = 0, frame = 0
+ 491              		@ frame_needed = 0, uses_anonymous_args = 0
+ 492 0000 08B5     		push	{r3, lr}
+ 493              	.LCFI12:
+ 494              		.cfi_def_cfa_offset 8
+ 495              		.cfi_offset 3, -8
+ 496              		.cfi_offset 14, -4
+  97:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 497              		.loc 1 97 5 view .LVU102
+ 498              		.loc 1 97 31 is_stmt 0 view .LVU103
+ 499 0002 FFF7FEFF 		bl	getDataprovider
+ 500              	.LVL24:
+  98:dataprovider.c ****     return dp->LED_Red_isActive;
+ 501              		.loc 1 98 5 is_stmt 1 view .LVU104
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 11
+
+
+  99:dataprovider.c **** }
+ 502              		.loc 1 99 1 is_stmt 0 view .LVU105
+ 503 0006 8069     		ldr	r0, [r0, #24]
+ 504              	.LVL25:
+ 505              		.loc 1 99 1 view .LVU106
+ 506 0008 08BD     		pop	{r3, pc}
+ 507              		.cfi_endproc
+ 508              	.LFE148:
+ 510              		.section	.text.setLED_Red_isActive,"ax",%progbits
+ 511              		.align	1
+ 512              		.global	setLED_Red_isActive
+ 513              		.syntax unified
+ 514              		.thumb
+ 515              		.thumb_func
+ 517              	setLED_Red_isActive:
+ 518              	.LVL26:
+ 519              	.LFB149:
+ 100:dataprovider.c **** 
+ 101:dataprovider.c **** void setLED_Red_isActive(int value)
+ 102:dataprovider.c **** {
+ 520              		.loc 1 102 1 is_stmt 1 view -0
+ 521              		.cfi_startproc
+ 522              		@ args = 0, pretend = 0, frame = 0
+ 523              		@ frame_needed = 0, uses_anonymous_args = 0
+ 524              		.loc 1 102 1 is_stmt 0 view .LVU108
+ 525 0000 10B5     		push	{r4, lr}
+ 526              	.LCFI13:
+ 527              		.cfi_def_cfa_offset 8
+ 528              		.cfi_offset 4, -8
+ 529              		.cfi_offset 14, -4
+ 530 0002 0446     		mov	r4, r0
+ 103:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 531              		.loc 1 103 5 is_stmt 1 view .LVU109
+ 532              		.loc 1 103 31 is_stmt 0 view .LVU110
+ 533 0004 FFF7FEFF 		bl	getDataprovider
+ 534              	.LVL27:
+ 104:dataprovider.c ****     dp->LED_Red_isActive = value;
+ 535              		.loc 1 104 5 is_stmt 1 view .LVU111
+ 536              		.loc 1 104 26 is_stmt 0 view .LVU112
+ 537 0008 8461     		str	r4, [r0, #24]
+ 105:dataprovider.c **** }
+ 538              		.loc 1 105 1 view .LVU113
+ 539 000a 10BD     		pop	{r4, pc}
+ 540              		.loc 1 105 1 view .LVU114
+ 541              		.cfi_endproc
+ 542              	.LFE149:
+ 544              		.section	.text.getLED_Red_currentState,"ax",%progbits
+ 545              		.align	1
+ 546              		.global	getLED_Red_currentState
+ 547              		.syntax unified
+ 548              		.thumb
+ 549              		.thumb_func
+ 551              	getLED_Red_currentState:
+ 552              	.LFB150:
+ 106:dataprovider.c **** 
+ 107:dataprovider.c **** int getLED_Red_currentState()
+ 108:dataprovider.c **** {
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 12
+
+
+ 553              		.loc 1 108 1 is_stmt 1 view -0
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 557 0000 08B5     		push	{r3, lr}
+ 558              	.LCFI14:
+ 559              		.cfi_def_cfa_offset 8
+ 560              		.cfi_offset 3, -8
+ 561              		.cfi_offset 14, -4
+ 109:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 562              		.loc 1 109 5 view .LVU116
+ 563              		.loc 1 109 31 is_stmt 0 view .LVU117
+ 564 0002 FFF7FEFF 		bl	getDataprovider
+ 565              	.LVL28:
+ 110:dataprovider.c ****     return dp->LED_Red_currentState;
+ 566              		.loc 1 110 5 is_stmt 1 view .LVU118
+ 111:dataprovider.c **** }
+ 567              		.loc 1 111 1 is_stmt 0 view .LVU119
+ 568 0006 C069     		ldr	r0, [r0, #28]
+ 569              	.LVL29:
+ 570              		.loc 1 111 1 view .LVU120
+ 571 0008 08BD     		pop	{r3, pc}
+ 572              		.cfi_endproc
+ 573              	.LFE150:
+ 575              		.section	.text.setLED_Red_currentState,"ax",%progbits
+ 576              		.align	1
+ 577              		.global	setLED_Red_currentState
+ 578              		.syntax unified
+ 579              		.thumb
+ 580              		.thumb_func
+ 582              	setLED_Red_currentState:
+ 583              	.LVL30:
+ 584              	.LFB151:
+ 112:dataprovider.c **** 
+ 113:dataprovider.c **** void setLED_Red_currentState(int value)
+ 114:dataprovider.c **** {
+ 585              		.loc 1 114 1 is_stmt 1 view -0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 0
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589              		.loc 1 114 1 is_stmt 0 view .LVU122
+ 590 0000 10B5     		push	{r4, lr}
+ 591              	.LCFI15:
+ 592              		.cfi_def_cfa_offset 8
+ 593              		.cfi_offset 4, -8
+ 594              		.cfi_offset 14, -4
+ 595 0002 0446     		mov	r4, r0
+ 115:dataprovider.c ****     struct dataprovider *dp = getDataprovider();
+ 596              		.loc 1 115 5 is_stmt 1 view .LVU123
+ 597              		.loc 1 115 31 is_stmt 0 view .LVU124
+ 598 0004 FFF7FEFF 		bl	getDataprovider
+ 599              	.LVL31:
+ 116:dataprovider.c ****     dp->LED_Red_currentState = value;
+ 600              		.loc 1 116 5 is_stmt 1 view .LVU125
+ 601              		.loc 1 116 30 is_stmt 0 view .LVU126
+ 602 0008 C461     		str	r4, [r0, #28]
+ 117:dataprovider.c **** }
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 13
+
+
+ 603              		.loc 1 117 1 view .LVU127
+ 604 000a 10BD     		pop	{r4, pc}
+ 605              		.loc 1 117 1 view .LVU128
+ 606              		.cfi_endproc
+ 607              	.LFE151:
+ 609              		.section	.bss.instance,"aw",%nobits
+ 610              		.align	2
+ 611              		.set	.LANCHOR0,. + 0
+ 614              	instance:
+ 615 0000 00000000 		.space	764
+ 615      00000000 
+ 615      00000000 
+ 615      00000000 
+ 615      00000000 
+ 616              		.text
+ 617              	.Letext0:
+ 618              		.file 2 "c:\\users\\bence\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.3.0\\armgcc\\arm-non
+ 619              		.file 3 "c:\\users\\bence\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.3.0\\armgcc\\arm-non
+ 620              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 621              		.file 5 "dataprovider.h"
+ARM GAS  C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dataprovider.c
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:20     .text.getDataprovider:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:26     .text.getDataprovider:00000000 getDataprovider
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:41     .text.getDataprovider:00000004 $d
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:46     .text.initDataprovider:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:52     .text.initDataprovider:00000000 initDataprovider
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:85     .text.initDataprovider:00000014 $d
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:90     .text.getLDs:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:96     .text.getLDs:00000000 getLDs
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:121    .text.setLDs:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:127    .text.setLDs:00000000 setLDs
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:155    .text.getLED_Green_speed:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:161    .text.getLED_Green_speed:00000000 getLED_Green_speed
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:186    .text.setLED_Green_speed:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:192    .text.setLED_Green_speed:00000000 setLED_Green_speed
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:220    .text.getLED_Green_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:226    .text.getLED_Green_isActive:00000000 getLED_Green_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:251    .text.setLED_Green_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:257    .text.setLED_Green_isActive:00000000 setLED_Green_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:285    .text.getLED_Green_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:291    .text.getLED_Green_currentState:00000000 getLED_Green_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:316    .text.setLED_Green_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:322    .text.setLED_Green_currentState:00000000 setLED_Green_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:350    .text.getLED_Blue_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:356    .text.getLED_Blue_isActive:00000000 getLED_Blue_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:381    .text.setLED_Blue_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:387    .text.setLED_Blue_isActive:00000000 setLED_Blue_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:415    .text.getLED_Blue_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:421    .text.getLED_Blue_currentState:00000000 getLED_Blue_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:446    .text.setLED_Blue_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:452    .text.setLED_Blue_currentState:00000000 setLED_Blue_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:480    .text.getLED_Red_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:486    .text.getLED_Red_isActive:00000000 getLED_Red_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:511    .text.setLED_Red_isActive:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:517    .text.setLED_Red_isActive:00000000 setLED_Red_isActive
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:545    .text.getLED_Red_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:551    .text.getLED_Red_currentState:00000000 getLED_Red_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:576    .text.setLED_Red_currentState:00000000 $t
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:582    .text.setLED_Red_currentState:00000000 setLED_Red_currentState
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:610    .bss.instance:00000000 $d
+C:\Users\Bence\AppData\Local\Temp\cc1xEvqf.s:614    .bss.instance:00000000 instance
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,16 @@
+[package]
+name = "Custom_HID_BaseCode"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "Custom_HID_BaseCode"
+crate-type = ["staticlib"]
+
+[dependencies]
+cty = "0.2.2"
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.3"
+cortex-m-semihosting = "0.5.0"
+libc = "0.2.147"
+panic-halt = "0.2.0"

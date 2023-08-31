@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations":
+	[
+		{
+			"name": "Cortex debug",
+			"type": "cortex-debug",
+			"request": "launch",
+			"servertype": "openocd",
+			"cwd": "${workspaceFolder}",
+			"armToolchainPath": "c:/Users/Bence/.vscode/extensions/buzzyelectronics.stm-helper-1.3.0/ArmGcc/bin",
+			"executable": "build/Custom_HID_BaseCode.elf",
+			"svdFile": "c:/Users/Bence/.vscode/extensions/buzzyelectronics.stm-helper-1.3.0/SvdTools/STM32F4/STM32F41x.svd",
+			"configFiles":
+			[
+				"c:/Users/Bence/.vscode/extensions/buzzyelectronics.stm-helper-1.3.0/OpenOCD/scripts/interface/stlink.cfg",
+				"c:/Users/Bence/.vscode/extensions/buzzyelectronics.stm-helper-1.3.0/OpenOCD/scripts/target/stm32f4x.cfg"
+			],
+			"preLaunchTask": "Build project"
+		}
+	]
+}
